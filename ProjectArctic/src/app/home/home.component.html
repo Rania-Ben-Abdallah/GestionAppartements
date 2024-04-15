@@ -1,0 +1,18 @@
+<p>home works!</p>
+<!--types de databinding-->
+
+<!--interpolation {{}} -->
+{{title}}
+
+<!--event Binding event=method -->
+<br>
+<input class="btn btn-secondary" type="submit" value="save" (click)="affich()">
+
+<!--property Binding-- on met [property]=val-->
+<p [style.backgroundColor]="color">Property</p>
+
+<!--Two Way Binding [(ngModel)]=var -->
+
+<input type="text" [(ngModel)]="color">{{color}}
+
+

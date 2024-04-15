@@ -1,0 +1,25 @@
+<p>product works!</p>
+<input  type="text" [(ngModel)]="prix">
+<table class="table"  >
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>price</th>
+        <th>quantity</th>
+        <th>like</th>
+        <th>buy</th>
+        <th>actions</th>
+
+    </tr>
+    <tr *ngFor="let p of listProduct, let i=index">
+        <ng-container *ngIf="prix >= p.price || prix== null ">
+            <td >{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.quantity}}</td>
+            <td>{{p.like}}</td>
+            <td><button (click)="buy(i)" [disabled]="p.quantity==0" class="btn btn-outline-info"> Buy</button></td> 
+            <td><button (click)="increment(i)" class="btn btn-outline-info"> Like</button></td> 
+        <!-- <td><button (click)="increment2(p)" class="btn btn-outline-info"> Like</button></td> !-->
+        </ng-container>
+    </tr>

@@ -1,0 +1,59 @@
+<p>residence works!</p>
+<h2>Search by Surface</h2>
+<input type="number" [(ngModel)]="searchSurface" placeholder="Enter surface">
+        <table class="table" > 
+            <tr>
+            <th> id </th>
+            <th> name </th>
+            <th> address </th>
+            <th>image </th>
+            </tr>
+
+    <tr *ngFor="let p of listResidences">
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.address }}</td>
+        <td>{{ p.image }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="showApartments(p.id)">Show apartments</button>
+
+        </td>
+    </tr>
+</table>
+
+<h2>List of Apartments</h2>
+<div *ngFor="let apartment of selectedApartments">
+    <p>{{ apartment.appartNum }}</p>
+</div>
+    <div *ngIf="selectedApartments.length === 0">
+        <p>No Apartments found</p>
+      </div>    
+<div *ngFor="let apartment of selectedApartments">  
+  <p>{{ apartment.description }}
+</p>
+  <button (click)="addToFavorites(apartment)">LIKE</button>
+</div>
+<div *ngIf="msg !== ''">{{ msg }}</div>
+<table class="table" > 
+    <tr>
+    <th> id </th>
+    <th> appartNum </th>
+    <th> surface </th>
+    <th>terrace </th>
+    <th>surfaceTerrace </th>
+    <th>category </th>
+    <th>description </th>
+    </tr>
+
+<tr *ngFor="let app of listApartments">
+    <ng-container *ngIf="app.surface==searchSurface"> 
+
+    <td>{{ app.id }}</td>
+    <td>{{ app.appartNum }}</td>
+    <td>{{ app.surface }}</td>
+    <td>{{ app.terrace }}</td>
+    <td>{{ app.surfaceTerrace }}</td>
+    <td>{{ app.category }}</td>
+    <td>{{ app.description }}</td>
+    </ng-container> 
+</tr>
