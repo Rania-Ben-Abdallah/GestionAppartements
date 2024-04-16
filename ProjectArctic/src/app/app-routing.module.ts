@@ -9,6 +9,7 @@ import { FormresidenceComponent } from './formresidence/formresidence.component'
 import { FormapartmentComponent } from './formapartment/formapartment.component';
 import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
 import { ApartmentsComponent } from './apartments/apartments.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,11 +17,13 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent },
   { path: 'detail/:id', component: DetailproductComponent },
   { path: 'residence', component: ResidenceComponent },
-  {path:'addResidence',component:FormresidenceComponent},
-  {path:'residence/:id',component:ApartmentsComponent},
-  {path:'addApartment',component:FormapartmentComponent},
+  { path:'addResidence',component:FormresidenceComponent},
+  { path:'residence/:id',component:ApartmentsComponent},
+  { path:'addApartment',component:FormapartmentComponent},
   { path: 'detail/:id', component: DetailAppartmentComponent },
-  { path: '**', redirectTo: '/404' }
+  { path: 'login', component: FormComponent },
+  { path: '**', component:NotfoundComponent }
+
 ];
 
 @NgModule({

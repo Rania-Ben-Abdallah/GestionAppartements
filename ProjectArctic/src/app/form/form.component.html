@@ -1,0 +1,16 @@
+<p>form works!</p>
+<label>Login</label>
+<input type="text" [formControl]="login">
+<label>password</label>
+<input type="text" [formControl]="pwd">
+<input type="submit" value="save" (click)="save()" [disabled]="login.invalid || pwd.invalid">
+
+<p>formgroup</p>
+<form [formGroup]="RegisterForm">
+    <input type="text" formControlName="nom">
+    <input type="text" formControlName="prenom">
+    <input type="text" formControlName="email">
+    <input type="text" formControlName="tel">
+    <input type="submit" value="save" (click)="save()" [disabled]="RegisterForm.invalid">
+
+</form>

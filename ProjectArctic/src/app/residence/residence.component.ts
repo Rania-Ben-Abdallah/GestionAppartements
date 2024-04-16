@@ -37,10 +37,11 @@ export class ResidenceComponent {
     addToFavorites(apartment: Apartment) {
         if (!this.listfavorites.includes(apartment)) {
           this.listfavorites.push(apartment);
+          console.log(this.listfavorites);
           this.msg = "Apartment added to favorites ";
         }
       }    
-  searchSurface !: number
+  surfaceMax !: number
 
       
 }
