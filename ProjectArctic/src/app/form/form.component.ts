@@ -18,6 +18,8 @@ export class FormComponent {
     tel : new FormControl('',[Validators.required,Validators.pattern('[0-9]{8}')])
 });
 
+
+
   save(){
     console.log(this.login);
   }

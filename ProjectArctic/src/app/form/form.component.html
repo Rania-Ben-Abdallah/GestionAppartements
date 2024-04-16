@@ -7,10 +7,39 @@
 
 <p>formgroup</p>
 <form [formGroup]="RegisterForm">
-    <input type="text" formControlName="nom">
-    <input type="text" formControlName="prenom">
-    <input type="text" formControlName="email">
-    <input type="text" formControlName="tel">
-    <input type="submit" value="save" (click)="save()" [disabled]="RegisterForm.invalid">
 
+    <div class="form-group">
+    <label>nom</label>
+    <input class="form-control" type="text" formControlName="nom">
+    <div class="alert alert-danger" *ngIf="this.RegisterForm.controls['nom'].invalid && this.RegisterForm.controls['nom'].touched">
+    <p *ngIf="RegisterForm.controls['nom'].hasError('required')">"nom invalide"</p>
+    <p *ngIf="RegisterForm.controls['nom'].hasError('minlength') ">
+        Le nom doit contenir au moins 6 caracteres
+    </p>
+    </div>
+    <label>Prenom</label>
+    <input  class="form-control" type="text" formControlName="prenom">
+    <div class="alert alert-danger" *ngIf="this.RegisterForm.controls['prenom'].invalid  && this.RegisterForm.controls['prenom'].touched">
+        <p *ngIf="RegisterForm.controls['prenom'].hasError('required')">"prenom invalide"</p>
+        <p *ngIf="RegisterForm.controls['prenom'].hasError('minlength') ">
+            Le prenom doit contenir au moins 6 caracteres </p>
+    </div>
+    <label>Email</label>
+    <input  class="form-control" type="text" formControlName="email">
+    <div class="alert alert-danger" *ngIf="this.RegisterForm.controls['email'].invalid && this.RegisterForm.controls['email'].touched">
+        <p *ngIf="RegisterForm.controls['email'].hasError('required')">"email invalide"</p>
+        <p *ngIf="RegisterForm.controls['email'].hasError('email')">
+            Veuillez entrer une adresse email sous la forme xxx@xxx
+        </p>  
+    </div>
+    <label>Telephone</label>
+    <input  class="form-control" type="text" formControlName="tel">
+    <div class="alert alert-danger" *ngIf="this.RegisterForm.controls['tel'].invalid && this.RegisterForm.controls['tel'].touched">
+        <p *ngIf="RegisterForm.controls['tel'].hasError('required')">"numero telephone invalide"</p>
+        <p *ngIf="RegisterForm.controls['tel'].hasError('pattern') ">
+            Veuillez entrer un numero de tel valide (8 chiffres)
+        </p>
+    </div>
+    <input type="submit" value="save" (click)="save()" [disabled]="RegisterForm.invalid">
+</div>
 </form>
