@@ -1,52 +1,12 @@
 <p>residence works!</p>
-<h2>Search by Surface</h2>
-<input type="number" [(ngModel)]="surfaceMax" placeholder="Enter surface">
-        
-    <ul class="list-group" *ngFor="let p of listResidences">
-        <li class="list-group-item" >{{ p.id }} {{ p.name }} {{ p.address }} 
-          <button class="btn btn-info" (click)="showApartments(p.id)">Show apartments</button>   </li>
-      </ul>
-
-<table class="table" > 
-    <tr>
-    <th> appartNum </th>
-    <th> surface </th>
-    <th>terrace </th>
-    <th>surfaceTerrace </th>
-    </tr>
-
-<tr *ngFor="let app of selectedApartments">
-    <td>{{ app.appartNum }}</td>
-    <td>{{ app.surface }}</td>
-    <td>{{ app.terrace }}</td>
-    <td>{{ app.surfaceTerrace }}</td>
-    <button (click)="addToFavorites(app)">LIKE</button>
-  </tr>
-</table>
 
 
-<div *ngIf="msg !== ''">{{ msg }}</div>
+<ul class=" list-group " *ngFor="let r of listResidences ">
 
-<table class="table" > 
-    <tr>
-    <th> id </th>
-    <th> appartNum </th>
-    <th> surface </th>
-    <th>terrace </th>
-    <th>surfaceTerrace </th>
-    <th>category </th>
-    <th>description </th>
-    </tr>
+    <li class="list-group-item ">
+        {{r.id}} {{r.name}} {{r.address}}
+        <button [routerLink]="['/apartement',r.id]" class="btn btn-info "> Show Appart</button>
+        <button [routerLink]="['/addApartment',r.id]" class="btn btn-info "> Ajouter Appart</button>
 
-<tr *ngFor="let app of listApartments">
-    <ng-container *ngIf="app.surface==surfaceMax"> 
-
-    <td>{{ app.id }}</td>
-    <td>{{ app.appartNum }}</td>
-    <td>{{ app.surface }}</td>
-    <td>{{ app.terrace }}</td>
-    <td>{{ app.surfaceTerrace }}</td>
-    <td>{{ app.category }}</td>
-    <td>{{ app.description }}</td>
-    </ng-container> 
-</tr>
+    </li>
+</ul>

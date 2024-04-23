@@ -11,10 +11,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DetailproductComponent } from './detailproduct/detailproduct.component';
 import { FormresidenceComponent } from './formresidence/formresidence.component';
-import { FormapartmentComponent } from './formapartment/formapartment.component';
 import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
 import { ApartmentsComponent } from './apartments/apartments.component';
 import { FormComponent } from './form/form.component';
+import { FormapartmentComponent } from './formapartment/formapartment.component';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FormapartmentComponent } from './formapartment.component';
-
 describe('FormapartmentComponent', () => {
   let component: FormapartmentComponent;
   let fixture: ComponentFixture<FormapartmentComponent>;

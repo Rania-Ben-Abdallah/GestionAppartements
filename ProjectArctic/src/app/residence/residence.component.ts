@@ -8,6 +8,10 @@ import { Apartment } from '../model/appartement';
   styleUrls: ['./residence.component.css']
 })
 export class ResidenceComponent {
+  listFav:Apartment[]=[];
+      listApp:Apartment[]=[];
+
+      searchSurface !: number
   listResidences:Residence[]=[
     {id:1,"name": "El fel","address":"Borj Cedria",
     "image":"../../assets/images/R1.jpeg"},
@@ -18,30 +22,24 @@ export class ResidenceComponent {
     {id:4,"name": "El Anber","address":"Manzah 5",
     "image":"../../assets/images/R4.jpg"}
     ];
-
-    listApartments:Apartment[]=[
-      { id:1,"appartNum":1,"floorNum":0,"surface":100,"terrace":"oui","surfaceTerrace":20,"category":"S+1","description":"Appartement S+1","residence":this.listResidences[0] },
-      {id:2,"appartNum":2,"floorNum":0,"surface":130,"terrace":"non","surfaceTerrace":0,"category":"S+2","description":"Appartement S+2","residence":this.listResidences[0] },
-      {id:3,"appartNum":3,"floorNum":0,"surface":150,"terrace":"oui","surfaceTerrace":30,"category":"S+3","description":"Appartement S+3","residence":this.listResidences[1] }
-    ];
-
+    
+listApartments:Apartment[]=[
+  {id:1,"appartNum":1,"floorNum":0,"surface":100,"terrace":"oui","surfaceTerrace":20,"category":"S+1","description":"Appartement sS+1","residence":this.listResidences[0] },
+  {id:2,"appartNum":2,"floorNum":0,"surface":130,"terrace":"non","surfaceTerrace":0,"category":"S+2","description":"Appartement S+2","residence":this.listResidences[0] },
+  {id:3,"appartNum":3,"floorNum":0,"surface":150,"terrace":"oui","surfaceTerrace":30,"category":"S+3","description":"Appartement S+3","residence":this.listResidences[1] }];
+    i!:number
     selectedApartments: Apartment[] = [];
 
     showApartments(residenceId: number) {
       this.selectedApartments = this.listApartments.filter(apartment => apartment.residence.id === residenceId);
      }
+    favorites: Apartment[] = [];
+    message: string = ""; // Variable to hold messages
 
-    listfavorites: Apartment[] = [];
-    msg: string = "";
+      fav(a:Apartment){
+        this.listFav.push(a);
+        console.log(this.fav);
+        
+      }
 
-    addToFavorites(apartment: Apartment) {
-        if (!this.listfavorites.includes(apartment)) {
-          this.listfavorites.push(apartment);
-          console.log(this.listfavorites);
-          this.msg = "Apartment added to favorites ";
-        }
-      }    
-  surfaceMax !: number
-
-      
-}
+    }

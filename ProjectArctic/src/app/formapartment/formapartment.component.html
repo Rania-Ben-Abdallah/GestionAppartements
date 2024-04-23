@@ -1,1 +1,49 @@
-<p>formapartment works!</p>
+<form [formGroup]="apartForm">
+  <div class="mb-3">
+    <label>Apart Num</label>
+    <input type="text" formControlName="appartNum" class="form-control">
+    <div class="alert alert-danger" *ngIf="apartForm.get('appartNum')?.invalid">
+      Apart num is required or must contain only numbers!
+    </div>
+  </div>
+  <div class="mb-3">
+    <label>Floor Num</label>
+    <input type="text" formControlName="floorNum" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label>Surface</label>
+    <input type="text" formControlName="surface" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label>Terrace</label>
+    <input type="radio" formControlName="terrace" value="oui">Oui
+    <input type="radio" formControlName="terrace" value="non">Non
+  </div>
+  <div class="mb-3" *ngIf="apartForm.get('terrace')?.value === 'oui'">
+    <label>Surface terrace</label>
+    <input type="text" formControlName="surfaceTerrace" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label>Category</label>
+    <input type="radio" formControlName="category" value="S+1">S+1
+    <input type="radio" formControlName="category" value="S+2">S+2
+    <input type="radio" formControlName="category" value="S+3">S+3
+  </div>
+  
+
+  <h5>Description</h5>
+  <textarea placeholder="Description" formControlName="Description"></textarea>
+  <div *ngIf="apartForm.get('Description')?.invalid && (apartForm.get('Description')?.dirty || apartForm.get('Description')?.touched)">
+      <div class="alert alert-danger" *ngIf="apartForm.get('Description')?.hasError('minlength')">
+          Le champ description doit contenir au moins 10 caractères.
+        </div>
+  </div>
+<h5>Residence</h5>
+<input type="text" placeholder="Residence" formControlName="Residence">
+<div *ngIf="apartForm.get('Residence')?.invalid && (apartForm.get('Residence')?.dirty || apartForm.get('Residence')?.touched)">
+<div *ngIf="apartForm.get('Residence')?.hasError('required')">Residence is required.</div>
+</div>
+
+<input type="submit" value="add"(click)="test()"[disabled]="apartForm.invalid" >
+
+</form>

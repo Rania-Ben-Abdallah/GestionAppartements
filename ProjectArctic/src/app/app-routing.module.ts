@@ -20,8 +20,11 @@ const routes: Routes = [
   { path:'addResidence',component:FormresidenceComponent},
   { path:'residence/:id',component:ApartmentsComponent},
   { path:'addApartment',component:FormapartmentComponent},
+  { path: 'addApartment/:id', component: FormapartmentComponent},
+  { path: 'apartmentDetails/:id', component: DetailAppartmentComponent }, 
   { path: 'detail/:id', component: DetailAppartmentComponent },
   { path: 'login', component: FormComponent },
+
   { path: '**', component:NotfoundComponent }
 
 ];
