@@ -10,11 +10,13 @@ import { FormapartmentComponent } from './formapartment/formapartment.component'
 import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
 import { ApartmentsComponent } from './apartments/apartments.component';
 import { FormComponent } from './form/form.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'addProduct', component: AddProductComponent },
   { path: 'detail/:id', component: DetailproductComponent },
   { path: 'residence', component: ResidenceComponent },
   { path:'addResidence',component:FormresidenceComponent},

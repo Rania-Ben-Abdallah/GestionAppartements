@@ -1,5 +1,7 @@
 <p>product works!</p>
 <input  type="text" [(ngModel)]="prix">
+<h2>la quantité des produits egale 0 est {{alert}}</h2> 
+
 <table class="table"  >
     <tr>
         <th>id</th>
@@ -21,5 +23,6 @@
             <td><button (click)="buy(i)" [disabled]="p.quantity==0" class="btn btn-outline-info"> Buy</button></td> 
             <td><button (click)="increment(i)" class="btn btn-outline-info"> Like</button></td> 
         <!-- <td><button (click)="increment2(p)" class="btn btn-outline-info"> Like</button></td> !-->
+            <td> <button [routerLink]="['/detail',p.id]">detail</button></td>
         </ng-container>
     </tr>

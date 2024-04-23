@@ -15,6 +15,9 @@ import { DetailAppartmentComponent } from './detail-appartment/detail-appartment
 import { ApartmentsComponent } from './apartments/apartments.component';
 import { FormComponent } from './form/form.component';
 import { FormapartmentComponent } from './formapartment/formapartment.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -29,13 +32,15 @@ import { FormapartmentComponent } from './formapartment/formapartment.component'
     FormapartmentComponent,
     DetailAppartmentComponent,
     ApartmentsComponent,
-    FormComponent
+    FormComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

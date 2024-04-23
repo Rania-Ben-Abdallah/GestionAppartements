@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../model/product';
+import { ProductService } from '../services/product.service';
+import { CalculService } from '../services/calcul.service';
 
 @Component({
   selector: 'app-product',
@@ -7,12 +9,17 @@ import { Product } from '../model/product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-  prix!:number;
-  listProduct: Product[]=[
-    {id:1,title:'product1',price:1500,quantity:10,like:0},
-    {id:2,title:'product2',price:1000,quantity:10,like:0},
-    {id:3,title:'product3',price:2000,quantity:10,like:0}
-  ]
+  prix!:number
+  listProduct: Product[]=[]
+  alert!: number
+
+  constructor(private Ps:ProductService,private Cl:CalculService){}
+
+  ngOnInit(): void {
+    this.listProduct=this.Ps.listProduct;
+    this.alert=this.Cl.stat(this.listProduct,'quantity',0)
+  }
+
 
   increment(id:number){
     //this.listProduct[id].like++ ;
@@ -24,7 +31,11 @@ export class ProductComponent {
     p.like++ ;
   }
   buy(i:number){
-    this.listProduct[i].quantity-- ; }
+    this.listProduct[i].quantity-- ; 
+  }
 
 
-}
+  
+  }
+  
+
