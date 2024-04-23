@@ -7,13 +7,13 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './formapartment.component.html',
   styleUrls: ['./formapartment.component.css'],
 })
-export class FormapartmentComponent implements OnInit {
+export class FormapartmentComponent  {
   id!: string; 
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'].toString();
+  ngOnInit(){
+    this.id = this.route.snapshot.params['id'];
     this.apartForm.patchValue({
       residence: this.id
     });
@@ -27,7 +27,7 @@ export class FormapartmentComponent implements OnInit {
     surfaceTerrace: new FormControl(''),
     category: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required, Validators.minLength(10)]),
-    residence: new FormControl('',Validators.required)
+    residence: new FormControl('',[Validators.required])
   });
 
   test(){
