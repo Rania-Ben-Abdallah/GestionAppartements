@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from '../model/product';
 import { ProductService } from '../services/product.service';
 import { CalculService } from '../services/calcul.service';
+import { ConsumerProductService } from '../services/consumer-product.service';
 
 @Component({
   selector: 'app-product',
@@ -10,13 +11,15 @@ import { CalculService } from '../services/calcul.service';
 })
 export class ProductComponent {
   prix!:number
-  listProduct: Product[]=[]
+  listProduct!: Product[]
   alert!: number
 
-  constructor(private Ps:ProductService,private Cl:CalculService){}
+  constructor(private Cl:CalculService, private cons:ConsumerProductService){}
 
   ngOnInit(): void {
-    this.listProduct=this.Ps.listProduct;
+    this.cons.getProduct().subscribe(
+      data=>this.listProduct=data
+    )
     this.alert=this.Cl.stat(this.listProduct,'quantity',0)
   }
 
